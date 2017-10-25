@@ -1,17 +1,12 @@
-import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { createPost } from '../actions/index'
 
-class PostsNew extends Component {
-  handleSubmit = (evt) => {
-    // evt.preventDefault()
-    // console.log(values);
-  }
+let PostsNew = props => {
   render() {
-    const {handleSubmit} = this.props
+    const { handleSubmit } = props
+    console.log(this.props.title);
     return (
       <div>
-        <form onSubmit = { handleSubmit(this.props.createPost) } method = 'post'>
+        <form onSubmit = { handleSubmit }>
           <h3>Create a new Post</h3>
           <div className = 'form-group'>
             <label htmlFor = 'title'>Title: </label>
@@ -37,16 +32,6 @@ class PostsNew extends Component {
 PostsNew = reduxForm({
   // always a unique name
   form: 'newPost'
-}, null, { createPost })(PostsNew)
+})(PostsNew)
 
 export default PostsNew
-
-
-// class NewPostForm extends Component {
-//
-//   render() {
-//     return (
-//       <PostNew onSubmit = { this.submit } />
-//     )
-//   }
-// }
